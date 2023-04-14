@@ -1,0 +1,26 @@
+<div class="d-block">
+    <h1>Todo</h1>
+    <app-todo-item-form #todoItemForm [todoItem]="currentTodoItem"></app-todo-item-form>
+    <app-todo-search-form></app-todo-search-form>
+</div>
+
+<div class="row">
+    <div *ngFor="let item of todoItemManager.filteredTodoItems" class="col-12 col-md-6 col-lg-4 mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <button class="btn btn-sm btn-primary" (click)="editItem(item)">Edit</button>
+                    <button class="btn btn-sm btn-danger" (click)="deleteItem(item)">Delete</button>
+                </h5>
+                <small class="card-text d-block">Created at: {{item.created_at}}</small>
+                <small class="card-text d-block">Status: {{item.status}}</small>
+                <small *ngIf="item.deadline" class="card-text d-block">Deadline: {{item.deadline}}</small>
+                <p class="card-text">{{item.text}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

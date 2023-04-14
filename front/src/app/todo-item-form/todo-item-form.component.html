@@ -1,0 +1,40 @@
+<button class="btn btn-success mr-3" (click)="todoItem = emptyTodoItem(); open()">
+    Create todo
+</button>
+
+<ng-template #todoFormModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-title">Todo item</h4>
+        <button
+            type="button"
+            class="btn-close"
+            aria-describedby="modal-title"
+            (click)="modal.dismiss('Cross click')"
+        ></button>
+    </div>
+    <div class="modal-body">
+        <form #todoItemForm="ngForm" (ngSubmit)="onSubmit()">
+
+            <app-form-control 
+                #textInput 
+                [(ngModel)]="todoItem.text" 
+                label="Text" 
+                name="text" 
+                type="textarea" 
+                [error]="errors['text']"
+            ></app-form-control>
+
+            <app-form-control 
+                #statusInput 
+                [(ngModel)]="todoItem.status" 
+                label="Status" 
+                name="status" 
+                [error]="errors['status']"
+            ></app-form-control>
+            
+            <app-date-time-input-group #deadlineInput [(ngModel)]="todoItem.deadline" label="Deadline" name="deadline"></app-date-time-input-group>
+            
+            <button type="submit" class="btn btn-success btn-block w-100">Save</button>
+        </form>
+    </div>
+</ng-template>

@@ -1,0 +1,21 @@
+{application, todolist,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {todolist_app, []}},
+  {applications,
+   [ kernel
+   , stdlib
+   , cowboy
+   , pgo
+   , ejson
+   , jsx
+   , entropy_string
+   , bcrypt
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {licenses, ["Apache-2.0"]},
+  {links, []}
+ ]}.

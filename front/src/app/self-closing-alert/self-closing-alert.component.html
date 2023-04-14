@@ -1,0 +1,8 @@
+<ngb-alert 
+    #selfClosingAlert 
+    [dismissible]="true" 
+    [type]="message.type" 
+    (closed)="messageService.delete(message)"
+>
+    {{message.content}}
+</ngb-alert>

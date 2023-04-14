@@ -1,0 +1,5 @@
+<div class="input-group my-3">
+    <label [for]="name+'From'" class="form-label w-100">{{label}}</label>
+    <input [(ngModel)]="time" type="time" [id]="name+'Time'" [name]="name+'_time'" class="form-control" style="border-radius:6px 0 0 6px;">
+    <input [(ngModel)]="date" type="date" [id]="name+'Date'" [name]="name+'_date'" class="form-control" style="border-radius:0 6px 6px 0;">
+</div>

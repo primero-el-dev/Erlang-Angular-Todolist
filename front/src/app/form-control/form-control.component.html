@@ -1,0 +1,19 @@
+<div class="my-3">
+    <label for="statusInput" class="form-label">{{label}}</label>
+    <input 
+        *ngIf="type !== 'textarea'"
+        [(ngModel)]="value"
+        [type]="type" 
+        [name]="name" 
+        [id]="name" 
+        class="form-control"
+    >
+    <textarea 
+        *ngIf="type === 'textarea'"
+        [(ngModel)]="value"
+        [name]="name" 
+        [id]="name" 
+        class="form-control"
+    ></textarea>
+    <small *ngIf="error" class="text-danger my-3">{{error}}</small>
+</div>

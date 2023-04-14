@@ -1,0 +1,68 @@
+<button class="btn btn-primary mr-3" (click)="open(todoSearchModal)">
+    Filter todos
+</button>
+
+<ng-template #todoSearchModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-title">Search todos</h4>
+        <button
+            type="button"
+            class="btn-close"
+            aria-describedby="modal-title"
+            (click)="modal.dismiss('Cross click')"
+        ></button>
+    </div>
+    <div class="modal-body">
+        <form #todoSearchForm="ngForm" (ngSubmit)="onSearch()">
+
+            <app-form-control #textSearchInput [(ngModel)]="textSearch" label="Text" name="text"></app-form-control>
+            
+            <app-form-control #statusSearchInput [(ngModel)]="statusSearch" label="Status" name="status"></app-form-control>
+
+            <app-date-time-input-group label="Created from" name="createdFrom" [(ngModel)]="createdFrom"></app-date-time-input-group>
+            <app-date-time-input-group label="Created to" name="createdTo" [(ngModel)]="createdTo"></app-date-time-input-group>
+            <app-date-time-input-group label="Deadline from" name="deadlineFrom" [(ngModel)]="deadlineFrom"></app-date-time-input-group>
+            <app-date-time-input-group label="Deadline to" name="deadlineFrom" [(ngModel)]="deadlineTo"></app-date-time-input-group>
+
+            <div class="my-3">
+                <label for="statusInput" class="form-label">Sort by</label>
+                <select [(ngModel)]="sortBy" name="sort_by" class="form-select">
+                    <option ngValue="" selected>None</option>
+                    <option ngValue="text">Text</option>
+                    <option ngValue="status">Status</option>
+                    <option ngValue="deadline">Deadline</option>
+                    <option ngValue="createed_at">Created at</option>
+                </select>
+            </div>
+
+            <div class="form-check mt-3">
+                <label for="sortDirectionAsc" class="form-label">Sort ascending</label>
+                <input 
+                    type="radio" 
+                    name="sort_direction" 
+                    id="sortDirectionAsc" 
+                    [(ngModel)]="sortDirection" 
+                    value="ASC" 
+                    class="form-check-input"
+                    checked
+                >
+            </div>
+
+            <div class="form-check mb-3">
+                <label for="sortDirectionDesc" class="form-label">Sort descending</label>
+                <input 
+                    type="radio" 
+                    name="sort_direction" 
+                    id="sortDirectionDesc" 
+                    [(ngModel)]="sortDirection" 
+                    value="DESC" 
+                    class="form-check-input"
+                >
+            </div>
+
+            <button type="reset" class="btn btn-danger btn-block w-100 mb-3">Reset</button>
+
+            <button type="submit" class="btn btn-success btn-block w-100">Search</button>
+        </form>
+    </div>
+</ng-template>

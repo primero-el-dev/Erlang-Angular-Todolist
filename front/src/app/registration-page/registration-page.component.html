@@ -1,0 +1,31 @@
+<h1>Login</h1>
+
+<form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
+    <app-form-control 
+        #emailInput 
+        ngModel 
+        label="Email" 
+        name="email" 
+        type="email" 
+        [error]="errors['email']"
+    ></app-form-control>
+
+    <app-form-control 
+        #passwordInput 
+        ngModel 
+        label="Password" 
+        name="password" 
+        type="password" 
+        [error]="errors['password']"
+    ></app-form-control>
+    
+    <app-form-control 
+        #repeatPasswordInput 
+        ngModel 
+        label="Repeat password" 
+        name="repeat_password" 
+        type="password"
+    ></app-form-control>
+
+    <button type="submit" class="btn btn-success btn-block w-100">Register</button>
+</form>
